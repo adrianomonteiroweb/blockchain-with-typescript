@@ -50,3 +50,12 @@ hash();
     hash.update(str).end();
     return hash.digest('hex');
 }
+class Chain {
+    constructor() {
+        this.chain = [new Block('', new Transaction(1000, 'genesis', 'godwin'))];
+    }
+    get lastBlock() {
+        return this.chain[this.chain.length - 1];
+    }
+}
+Chain.instance = new Chain();

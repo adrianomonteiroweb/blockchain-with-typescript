@@ -30,3 +30,17 @@ class Block {
     return hash.digest('hex');
   }
 }
+
+class Chain {
+  public static instance = new Chain();
+
+  chain: Block[];
+
+  constructor() {
+    this.chain = [new Block('', new Transaction(1000, 'genesis', 'godwin'))]
+  }
+
+  get lastBlock() {
+    return this.chain[this.chain.length - 1]
+  }
+}
